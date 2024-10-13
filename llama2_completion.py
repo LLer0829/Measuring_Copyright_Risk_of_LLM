@@ -28,7 +28,7 @@ def get_llm_completion(prompt):
 def calculate_rouge(reference, hypothesis):
     scorer = rouge_scorer.RougeScorer(['rougeL'], use_stemmer=True)
     scores = scorer.score(reference, hypothesis)
-    return scores['rougeL'].precision
+    return scores['rougeL'].recall
 
 
 def main_evaluate(samples_dir, output_csv):
@@ -46,18 +46,18 @@ def main_evaluate(samples_dir, output_csv):
 
         completion = get_llm_completion(prompt)
 
-        rouge_l_precision = calculate_rouge(reference_continuation, completion)
+        rouge_l_recall = calculate_rouge(reference_continuation, completion)
         results.append({
             'LLMs': 'llama2',
             'Parameter scale': '70b',
             'Title': "HP3",
             'Prompt': prompt,
             'Completion': completion,
-            'ROUGE-L': rouge_l_precision,
+            'ROUGE-L': rouge_l_recall,
             'Temperature': '0',
             'max_tokens': '300'
         })
-        print(f"{sample_file} ROUGE-L Recall: {rouge_l_precision}")
+        print(f"{sample_file} ROUGE-L Recall: {rouge_l_recall}")
 
     with open(output_csv, 'a', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['LLMs', 'Parameter scale', 'Title', 'Prompt', 'Completion', 'ROUGE-L', 'Temperature', 'max_tokens']
@@ -68,7 +68,7 @@ def main_evaluate(samples_dir, output_csv):
 
 
 if __name__ == "__main__":
-    samples_dir = "HP3/sample_200"
-    output_csv = "Add Data.csv"
+    samples_dir = "Pride and Prejudice/sample"
+    output_csv = "Data.csv"
     main_evaluate(samples_dir, output_csv)
 
