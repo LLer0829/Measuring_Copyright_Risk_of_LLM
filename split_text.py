@@ -24,7 +24,7 @@ def split_novel_into_samples(novel_path, output_dir, num_samples=20, sample_leng
 
 
 # Example usage
-novel_path = 'The Hobbit/The Hobbit.txt'
-output_dir = 'The Hobbit/sample_200'
+novel_path = 'Pride and Prejudice.txt'
+output_dir = 'Pride and Prejudice/sample'
 split_novel_into_samples(novel_path, output_dir)
 
