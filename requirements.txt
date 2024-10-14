@@ -1,0 +1,2 @@
+replicate==0.26.1
+rouge-score==0.1.2
