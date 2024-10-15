@@ -69,3 +69,14 @@ def calculate_rouge(reference, hypothesis):
     scores = scorer.score(reference, hypothesis)
     return scores['rougeL'].recall
 ```
+
+## Citation
+If you find our code, data, or the paper useful, please cite the paper:
+```
+@article{zhao2024measuring,
+  title={Measuring Copyright Risks of Large Language Model via Partial Information Probing},
+  author={Zhao, Weijie and Shao, Huajie and Xu, Zhaozhuo and Duan, Suzhen and Zhang, Denghui},
+  journal={arXiv preprint arXiv:2409.13831},
+  year={2024}
+}
+```
