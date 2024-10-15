@@ -44,5 +44,22 @@ output_dir = 'File'
 split_text_into_samples(text_path, output_dir)
 ```
 ### LLMs Completion
+Please replace the contents of the get_llm_completion function with the API for the LLM you wish to test, using Llama2 as an example here. (Note: For security purposes, store the API KEY in an environment variable. If you're unsure how to configure environment variables, please refer to the [tutorial](https://replicate.com/meta/llama-2-70b/api).)
+```
+def get_llm_completion(prompt):
+    input = {
+        "prompt": prompt,
+        "temperature": 0,
+        "max_tokens": 300,
+    }
+
+    completion = ""
+    for event in replicate.stream(
+            "meta/llama-2-70b",
+            input=input
+    ):
+        completion += event.data
+    return completion.replace('\n', ' ').strip()
+```
 
 ### Calculate Rouge-Score
