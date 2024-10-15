@@ -63,3 +63,9 @@ def get_llm_completion(prompt):
 ```
 
 ### Calculate Rouge-Score
+```
+def calculate_rouge(reference, hypothesis):
+    scorer = rouge_scorer.RougeScorer(['rougeL'], use_stemmer=True)
+    scores = scorer.score(reference, hypothesis)
+    return scores['rougeL'].recall
+```
