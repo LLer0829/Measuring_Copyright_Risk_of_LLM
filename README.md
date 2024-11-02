@@ -13,7 +13,7 @@ Measuring Copyright Risks of Large Language Model via Partial Information Probin
 - LLMs Completion
 - Calculate Rouge-Score
 
-### Splite Text
+### Split Tested Novels
 First, please replace `text_path` with the path to the text you want to test, and `output_dir` with the location where you want the samples to be saved. Next, `num_samples` controls the number of samples to extract, and `sample_length` controls the length of each sample. Adjust these parameters based on your needs.
 
 ```
